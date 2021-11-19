@@ -24,13 +24,13 @@ from sklearn.naive_bayes import GaussianNB
 #from sklearn.svm import SVC
 
 url = "Datasets/alzheimers.csv"
-names = ['visit', 'mri_delay', 'sex',
-         'hand', 'age', 'education_years','social_status', 'mental_state_exam', 'clinical_dementia_rating',
+names = ['mri_delay', 'sex',
+          'age', 'education_years','social_status', 'mental_state_exam', 'clinical_dementia_rating',
          'estimated_tot_intracranial_vol', 'norm_brain_vol', 'atlas_scaling_factor', 'diagnosis']
 dataset = read_csv(url, names=names)
 
 array = dataset.values
-
+#0 male 1 female
 # Split-out validation dataset
 
 X = array[:,0:-1]
@@ -45,8 +45,9 @@ predictions = model.predict(X_validation)
 print(f'The prediction accuracy is {accuracy_score(Y_validation, predictions)*100:.2f}')
 
 """
+
 #Input data prediction example
-news = [[3,1598,1,0,83,16,2,29,0,1323,0.718,1.327]]
+news = [[1598,1,83,16,2,29,0,1323,0.718,1.327]]
 newpredict = model.predict(news)
 print(newpredict)
 """

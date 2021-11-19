@@ -27,14 +27,14 @@ from sklearn.preprocessing import StandardScaler as ss
 
 
 url = "Datasets/heart_diseasev2.csv"
-names = ['age', 'sex', 'chest_pain_type', 'resting_blood_pressure', 'serum_cholesterol', 'fasting_blood_sugar',
+names = ['age', 'sex', 'chest_pain_type', 'resting_blood_pressure', 'serum_cholestrol', 'fasting_blood_sugar',
          'resting_ecg', 'max_heart_rate', 'excercise_induced_angina','st_depression_exercise_induced', 'peak_ex_st', 'major_vessels_num',
          'thalassemia', 'diagnosis']
 dataset = read_csv(url, names=names)
 
 dataset['diagnosis'] = dataset.diagnosis.map({0: 0, 1: 1, 2: 1, 3: 1, 4: 1})
 
-
+#sex=> 1 male 0 female
 array = dataset.values
 X = array[:,0:-1]
 y = array[:,-1]
